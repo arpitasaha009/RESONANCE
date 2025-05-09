@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
 import { ChevronDown, MoreVertical, Shield, Ban, Trash2, Save, Edit3 } from 'lucide-react';
+import { userImages } from './userManagementImages';
 
 const initialUsers = [
   { 
     _id: '1', 
     name: 'Mustafiz ahsan', 
     username: 'musta123', 
-    email: 'example@gmail.com', 
-    avatar: '/path/to/avatar1.jpg', 
+    email: 'musta@gmail.com', 
+    avatar: userImages.Anik, 
     role: 'musician', 
     rank: 'Bronze', 
     followers: 120, 
     artistName: 'DJ Alice', 
-    profileImage: '/path/to/profile1.jpg', 
-    albumCover: '/path/to/album1.jpg',
+    profileImage: userImages.Anik, 
+    albumCover: userImages.LifeInABubble,
     albumTitle: 'Life in a bubble',
     status: 'New Artist'
   },
@@ -21,29 +22,29 @@ const initialUsers = [
     _id: '2', 
     name: 'Anik', 
     username: 'anik1', 
-    email: 'example@gmail.com', 
-    avatar: '/path/to/avatar2.jpg', 
+    email: 'anik@gmail.com', 
+    avatar: userImages.Mustafiz, 
     role: 'musician', 
     rank: 'Gold', 
     followers: 80, 
     artistName: 'Bobby Beats', 
-    profileImage: '/path/to/profile2.jpg',
-    albumCover: '/path/to/album2.jpg',
-    albumTitle: 'Everything\'s black',
+    profileImage: userImages.Mustafiz,
+    albumCover: userImages.EverythingsBlack,
+    albumTitle: "Everything's black",
     status: ''
   },
   { 
     _id: '3', 
     name: 'GigaChad', 
     username: 'gigachad2', 
-    email: 'example@gmail.com', 
-    avatar: '/path/to/avatar3.jpg', 
+    email: 'gigachad@gmail.com', 
+    avatar: userImages.GigaChad, 
     role: 'musician', 
     rank: 'Platinum', 
     followers: 30, 
     artistName: 'Carol T', 
-    profileImage: '/path/to/profile3.jpg',
-    albumCover: '/path/to/album3.jpg',
+    profileImage: userImages.GigaChad,
+    albumCover: userImages.Cancelled,
     albumTitle: 'Cancelled',
     status: 'New Artist'
   },
@@ -52,9 +53,17 @@ const initialUsers = [
 const rankColors = {
   'Diamond': 'bg-blue-500 text-white',
   'Platinum': 'bg-purple-500 text-white',
-  'Gold': 'bg-yellow-500 text-black',
+  'Gold': 'bg-yellow-400 text-black',
   'Silver': 'bg-gray-400 text-white',
   'Bronze': 'bg-amber-700 text-white'
+};
+
+const rankTextColors = {
+  'Diamond': 'text-blue-400',
+  'Platinum': 'text-purple-400',
+  'Gold': 'text-yellow-400',
+  'Silver': 'text-gray-300',
+  'Bronze': 'text-amber-700',
 };
 
 const UserManagement = () => {
@@ -125,13 +134,13 @@ const UserManagement = () => {
                 <td className="px-6 py-4 flex items-center space-x-3">
                   <div className="w-10 h-10 rounded-full overflow-hidden bg-gradient-to-br from-purple-500 to-pink-500">
                     <img 
-                      src={user.avatar || "/api/placeholder/40/40"} 
+                      src={user.avatar} 
                       alt={user.name}
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div>
-                    <div>{user.name}</div>
+                    <div className={rankTextColors[user.rank] || ''}>{user.name}</div>
                     <div className="text-gray-500">@{user.username}</div>
                   </div>
                 </td>
@@ -189,13 +198,13 @@ const UserManagement = () => {
               <div className="p-4">
                 <div className="rounded-lg overflow-hidden mb-4 aspect-video bg-gray-800">
                   <img 
-                    src={musician.albumCover || "/api/placeholder/400/400"} 
+                    src={musician.albumCover} 
                     alt={musician.albumTitle}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="mb-2">
-                  <span className={`px-3 py-1 rounded text-sm font-medium ${rankColors[musician.rank]}`}>
+                  <span className={`px-3 py-1 rounded text-sm font-medium ${rankColors[musician.rank]} ${rankTextColors[musician.rank]}`}>
                     {musician.rank}
                   </span>
                   {musician.status === 'Banned' && (
