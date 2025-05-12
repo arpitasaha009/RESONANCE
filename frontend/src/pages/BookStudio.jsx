@@ -101,7 +101,7 @@ const BookStudio = () => {
                   <div className="h-48 overflow-hidden">
                     {studio.images && studio.images.length > 0 ? (
                       <img 
-                        src={`${import.meta.env.BACKEND_URL}${studio.images[0]}`} 
+                        src={`http://127.0.0.1:5000${studio.images[0]}`} 
                         alt={studio.name} 
                         className="w-full h-full object-cover"
                       />

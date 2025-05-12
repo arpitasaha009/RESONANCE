@@ -202,7 +202,7 @@ const ProductDetail = () => {
                 <div>
                   <div className="rounded-lg overflow-hidden h-80 mb-4">
                     <img
-                      src={`http://:5000${product.images[activeImage]}`}
+                      src={`http://127.0.0.1:5000${product.images[activeImage]}`}
                       alt={product.name}
                       className="w-full h-full object-contain"
                     />
@@ -218,7 +218,7 @@ const ProductDetail = () => {
                           }`}
                         >
                           <img
-                            src={`${import.meta.env.BACKEND_URL}${image}`}
+                            src={`http://127.0.0.1:5000${image}`}
                             alt={`${product.name} - view ${index + 1}`}
                             className="w-full h-full object-cover"
                           />
@@ -429,7 +429,7 @@ const ProductDetail = () => {
                 <div key={relatedProduct._id} className="bg-black/50 backdrop-blur-md rounded-xl overflow-hidden border border-white/20 transition-transform hover:scale-105">
                   <a href={`/products/${relatedProduct._id}`}>
                     <img 
-                      src={`${import.meta.env.BACKEND_URL}${relatedProduct.images[0]}`} 
+                      src={`http://127.0.0.1:5000${relatedProduct.images[0]}`} 
                       alt={relatedProduct.name} 
                       className="w-full h-40 object-cover"
                     />

@@ -86,7 +86,7 @@ const RentInstrument = () => {
       
       // Redirect to user rentals after 2 seconds
       setTimeout(() => {
-        navigate('/user/rentals');
+        navigate('/users/rentals');
       }, 2000);
       
     } catch (err) {
@@ -148,7 +148,7 @@ const RentInstrument = () => {
                   >
                     {instrument.images && instrument.images.length > 0 ? (
                       <img 
-                        src={`${import.meta.env.BACKEND_URL}${instrument.images[0]}`}
+                        src={`http://127.0.0.1:5000${instrument.images[0]}`}
                         alt={instrument.name} 
                         className="w-full h-48 object-cover rounded-md mb-4"
                       />

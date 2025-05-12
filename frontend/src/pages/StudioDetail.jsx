@@ -128,9 +128,9 @@ const StudioDetail = () => {
             setIsSubmitting(true);
             setBookingError(null);
             if (isAuthenticated && user) {
-                console.log(user._id)
+                console.log(user._id || user.id)
                     await api.post('/rewards/points', {
-                      userId: user._id,
+                      userId: user._id || user.id,
                       amount: calculateTotalPrice(),
                       activity: 'booking',
                       description: 'Points earned from booking',
@@ -250,7 +250,7 @@ const StudioDetail = () => {
                             {studio.images && studio.images.length > 0 ? (
                                 <div className="rounded-lg overflow-hidden h-64">
                                     <img
-                                        src={`${import.meta.env.BACKEND_URL}:5000${studio.images[0]}`}
+                                        src={`http://127.0.0.1:5000${studio.images[0]}`}
                                         alt={studio.name}
                                         className="w-full h-full object-cover"
                                     />

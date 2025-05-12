@@ -91,7 +91,7 @@ const Cart = () => {
                     <div className="flex-shrink-0 w-24 h-24 bg-white/5 rounded-md overflow-hidden mr-4 mb-4 sm:mb-0">
                       <img 
                         src={item.product.images && item.product.images.length > 0 
-                          ? `${import.meta.env.BACKEND_URL}${item.product.images[0]}`
+                          ? `http://127.0.0.1:5000${item.product.images[0]}`
                           : '/placeholder-image.jpg'} 
                         alt={item.product.name || 'Product'} 
                         className="w-full h-full object-cover"

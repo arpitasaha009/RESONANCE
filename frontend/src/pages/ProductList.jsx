@@ -228,7 +228,7 @@ const addToCart = async (productId) => {
                 <div key={product._id} className="bg-black/70 backdrop-blur-md rounded-2xl shadow-2xl overflow-hidden border border-white/30 transition-transform hover:scale-105">
                   <a href={`/products/${product._id}`}>
                     <img 
-                      src={`${import.meta.env.BACKEND_URL}${product.images[0]}`} 
+                      src={`http://127.0.0.1:5000${product.images[0]}`} 
                       alt={product.name} 
                       className="w-full h-48 object-cover"
                     />

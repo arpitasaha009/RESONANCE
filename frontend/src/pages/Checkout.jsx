@@ -151,7 +151,7 @@ const Checkout = () => {
       if (isAuthenticated && user) {
         const pointsToAdd = Math.floor(cart.total);
         await api.post('/rewards/points', {
-          userId: user._id,
+          userId: user._id || user.id,
           amount: pointsToAdd,
           activity: 'purchase',
           description: 'Points earned from purchase',
@@ -384,7 +384,7 @@ const Checkout = () => {
                       <div className="w-12 h-12 bg-white/5 rounded-md overflow-hidden mr-3">
                         <img 
                           src={item.product.images && item.product.images.length > 0 
-                            ? `${import.meta.env.BACKEND_URL}${item.product.images[0]}`
+                            ? `http://127.0.0.1:5000${item.product.images[0]}`
                             : '/placeholder-image.jpg'} 
                           alt={item.product.name || 'Product'} 
                           className="w-full h-full object-cover"

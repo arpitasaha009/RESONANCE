@@ -36,7 +36,8 @@ export const cancelBooking = async (req, res) => {
     if (booking.status === 'completed') {
       return res.status(400).json({ message: 'Cannot cancel a completed booking' });
     }
-    if (booking.createdAt - Date.now() < 24 * 60 * 60) {
+    if (booking.createdAt - Date.now() < 24 * 60 * 60 && req.user.role !== 'admin') {
+      console.log("old");
       return res.status(400).json({ message: 'Booking cannot be cancelled within 24 hours of booking' });
     }
     
